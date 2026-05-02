@@ -1505,13 +1505,6 @@
       });
     }
 
-    function initWhatsAppButton() {
-      const btn = document.querySelector(".wa-fab");
-      if (!btn) return;
-      const defaultText = "Hi NucleusEd, I want to book a free consultation.";
-      btn.href = "https://wa.me/" + UI_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(defaultText);
-    }
-
     function setStatus(message, kind) {
       const status = document.getElementById("formStatus");
       status.className = "status show " + kind;
