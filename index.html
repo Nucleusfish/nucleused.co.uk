@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -1318,6 +1319,7 @@
               <textarea id="message" name="message" placeholder="Tell me current grade, target grade, exam board, and biggest challenge." required></textarea>
             </div>
 
+            <div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001" data-theme="dark"></div>
             <button class="btn-send" type="submit" id="sendBtn">Send Message</button>
             <div id="formStatus" class="status" role="status" aria-live="polite"></div>
           </form>
@@ -1332,17 +1334,7 @@
     </footer>
   </main>
 
-  <span class="wa-fab-label" aria-hidden="true">Chat on WhatsApp</span>
-  <a
-    class="wa-fab"
-    href="https://wa.me/447741938743?text=Hi%20NucleusEd%2C%20I%20want%20to%20book%20a%20free%20consultation."
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Quick WhatsApp contact"
-    title="Chat on WhatsApp"
-  >
-    W
-  </a>
+
 
   <script type="application/ld+json">
     {
@@ -1604,6 +1596,12 @@
           return;
         }
 
+        const captchaResponse = hcaptcha.getResponse();
+        if (!captchaResponse) {
+          setStatus("Please complete the CAPTCHA verification.", "err");
+          return;
+        }
+
         const data = {
           firstName: form.firstName.value.trim(),
           lastName: form.lastName.value.trim(),
@@ -1631,15 +1629,18 @@
             });
             setStatus("Message sent successfully. You should receive a reply soon.", "ok");
             form.reset();
+            hcaptcha.reset();
           } else {
             await sendViaFormEndpoint(data);
             setStatus("Message sent successfully. You should receive a reply soon.", "ok");
             form.reset();
+            hcaptcha.reset();
           }
         } catch (error) {
           const mailto = buildMailto(data);
           window.location.href = mailto;
-          setStatus("Direct send failed or mailbox not activated yet. Email app opened as fallback, please send the drafted message.", "err");
+          setStatus("Direct send failed. Email app opened as fallback — please send the drafted message.", "err");
+          hcaptcha.reset();
           console.error("Contact form error", error);
         } finally {
           sendBtn.disabled = false;
@@ -1653,7 +1654,6 @@
     initCounters();
     initTiltCards();
     initHeroParallax();
-    initWhatsAppButton();
     initForm();
   </script>
 </body>
