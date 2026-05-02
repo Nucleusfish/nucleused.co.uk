@@ -1319,7 +1319,7 @@
               <textarea id="message" name="message" placeholder="Tell me current grade, target grade, exam board, and biggest challenge." required></textarea>
             </div>
 
-            <div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001" data-theme="dark"></div>
+            <div class="h-captcha" data-sitekey="11d48d42-6604-49e2-afe0-99806b5afba4" data-theme="dark"></div>
             <button class="btn-send" type="submit" id="sendBtn">Send Message</button>
             <div id="formStatus" class="status" role="status" aria-live="polite"></div>
           </form>
@@ -1360,6 +1360,10 @@
 
     const FORM_DELIVERY_CONFIG = {
       endpoint: "https://formsubmit.co/ajax/info@nucleused.co.uk"
+    };
+
+    const UI_CONFIG = {
+      whatsappNumber: "447741938743"
     };
 
     function initReveal() {
@@ -1503,6 +1507,13 @@
           animationId = requestAnimationFrame(draw);
         }
       });
+    }
+
+    function initWhatsAppButton() {
+      const btn = document.querySelector(".wa-fab");
+      if (!btn) return;
+      const defaultText = "Hi NucleusEd, I want to book a free consultation.";
+      btn.href = "https://wa.me/" + UI_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(defaultText);
     }
 
     function setStatus(message, kind) {
