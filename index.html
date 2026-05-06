@@ -600,6 +600,61 @@
       text-transform: uppercase;
     }
 
+    .quote-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .quote-stars {
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .quote-author {
+      margin-top: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .quote-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(53, 208, 186, 0.35);
+      background: rgba(53, 208, 186, 0.14);
+      color: #dff5ff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.73rem;
+      flex-shrink: 0;
+    }
+
+    .quote-meta {
+      display: grid;
+      gap: 0.1rem;
+    }
+
+    .quote-name {
+      color: var(--text);
+      font-size: 0.86rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .quote-board {
+      color: var(--text-soft);
+      font-size: 0.74rem;
+      line-height: 1.2;
+      letter-spacing: 0.03em;
+    }
+
     .contact-wrap {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -1236,16 +1291,73 @@
     </section>
 
     <section id="results">
-      <h2 class="section-title reveal">Feedback from recent students.</h2>
-      <p class="section-sub reveal">Consistent themes: improved confidence, clearer understanding, better paper performance.</p>
+      <h2 class="section-title reveal">Student Results <span class="grad">Don&apos;t take my word for it.</span></h2>
+      <p class="section-sub reveal">Real feedback from students across A-Level Biology, A-Level Chemistry, and GCSE Combined Science.</p>
       <div class="results">
         <article class="quote reveal">
-          <p>"I finally understood complex biology topics and started scoring much higher in past papers within weeks."</p>
-          <small>A-Level Biology Student</small>
+          <div class="quote-head">
+            <div class="quote-stars">★★★★★</div>
+          </div>
+          <p>"Excellent tutor who is very easy to get on with and informative, thorough and patient with her approach. She has helped me achieve higher grades in a very short space of time and I would highly recommend."</p>
+          <div class="quote-author">
+            <div class="quote-avatar">IL</div>
+            <div class="quote-meta">
+              <div class="quote-name">Imogen L.</div>
+              <div class="quote-board">A-Level Biology · OCR A</div>
+            </div>
+          </div>
         </article>
         <article class="quote reveal">
-          <p>"The chemistry sessions were structured and intense in the best way. I stopped panicking in timed exams."</p>
-          <small>A-Level Chemistry Student</small>
+          <div class="quote-head">
+            <div class="quote-stars">★★★★★</div>
+          </div>
+          <p>"I&apos;ve been through a few tutors and Kayal has been the best by far. I study A-Level Chemistry and she&apos;s been amazing at helping me understand difficult topics and working through questions. Her knowledge is thorough and extensive and I couldn&apos;t recommend her more."</p>
+          <div class="quote-author">
+            <div class="quote-avatar">TC</div>
+            <div class="quote-meta">
+              <div class="quote-name">Tia C.</div>
+              <div class="quote-board">A-Level Chemistry · Edexcel</div>
+            </div>
+          </div>
+        </article>
+        <article class="quote reveal">
+          <div class="quote-head">
+            <div class="quote-stars">★★★★★</div>
+          </div>
+          <p>"Kayal is an amazing tutor, she has helped me immensely throughout the entirety of my A-Levels. She&apos;s allowed me to have a thorough understanding of biology as a subject, by breaking down intricate concepts, simplifying them and making them easier to comprehend. I feel confident in my understanding of biology, and genuinely believe that Kayal has set me up to excel in my exams. I would 100% recommend her!"</p>
+          <div class="quote-author">
+            <div class="quote-avatar">VK</div>
+            <div class="quote-meta">
+              <div class="quote-name">Viktoria K.</div>
+              <div class="quote-board">A-Level Biology · OCR A</div>
+            </div>
+          </div>
+        </article>
+        <article class="quote reveal">
+          <div class="quote-head">
+            <div class="quote-stars">★★★★★</div>
+          </div>
+          <p>"Kayal is a great tutor for both Chemistry and Biology and I found that my understanding in both of these subjects has increased. She is also helping me nurture my exam technique, especially for biology, providing focused learning by going through past paper questions specific to my board."</p>
+          <div class="quote-author">
+            <div class="quote-avatar">AN</div>
+            <div class="quote-meta">
+              <div class="quote-name">Anagha N.</div>
+              <div class="quote-board">A-Level Chemistry · AQA</div>
+            </div>
+          </div>
+        </article>
+        <article class="quote reveal">
+          <div class="quote-head">
+            <div class="quote-stars">★★★★★</div>
+          </div>
+          <p>"Really patient and thorough. Every session felt productive and I never felt judged for not understanding. Genuinely changed how I approach studying."</p>
+          <div class="quote-author">
+            <div class="quote-avatar">AM</div>
+            <div class="quote-meta">
+              <div class="quote-name">Aisha M.</div>
+              <div class="quote-board">GCSE Combined Science · Edexcel</div>
+            </div>
+          </div>
         </article>
       </div>
     </section>
